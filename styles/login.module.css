@@ -1,0 +1,19 @@
+.vh100 {
+	height: 100vh;
+}
+
+.imageBackground {
+	background-image: url(/images/woman.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.backgroundOverlay {
+	background-color: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(0.25rem);
+}
+
+.m015 {
+	margin: 0.15rem;
+}

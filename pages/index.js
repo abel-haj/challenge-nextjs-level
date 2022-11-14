@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import womanImage from '../public/images/woman.png'
 import { useState } from 'react'
+import styles from '../styles/login.module.css'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -25,8 +24,7 @@ export default function Login() {
         <div className="row">
           {/* LEFT SECTION */}
           <div className='col-12 col-md-6'>
-            {/* center form vertically */}
-            <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+            <div className={`d-flex justify-content-center align-items-center ${styles.vh100}`}>
               <form className='row col-lg-8' onSubmit={handleSubmit}>
                 <div className='col-lg-12'>
                   <h1 className=''>Welcome back</h1>
@@ -85,24 +83,12 @@ export default function Login() {
           {/* RIGHT SECTION */}
           <div className='d-none d-md-block col-md-6'>
             <div
-              className='d-flex flex-column justify-content-center align-items-center position-relative clearfix'
-              style={{
-                height: '100vh',
-                backgroundImage: 'url(/images/woman.png)',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-              }}>
+              className={`d-flex flex-column justify-content-center align-items-center position-relative clearfix ${styles.imageBackground} ${styles.vh100}`}>
 
-              {/* float quote above the image at the bottom */}
-              <div className='position-absolute bottom-0 start-50 translate-middle-x'
-                style={{ width:'100%' }}
+              <div
+                className='position-absolute bottom-0 start-50 translate-middle-x w-100'
                 >
-                <div className='m-4 px-3 py-4 text-white rounded'
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.45)',
-                    backdropFilter: 'blur(0.25rem)',
-                  }}>
+                <div className={`m-4 px-3 py-4 text-white rounded ${styles.backgroundOverlay}`}>
                   <blockquote className='h4 mb-3'>
                     "We've been using Untitled to kick start every new project and can't imagin working without it."
                   </blockquote>
@@ -111,11 +97,11 @@ export default function Login() {
                     <h2>Andi Lane</h2>
 
                     <div className=''>
-                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
                     </div>
                   </div>
 
