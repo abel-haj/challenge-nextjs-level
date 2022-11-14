@@ -23,8 +23,8 @@ export default function Login() {
 
       <main>
         <div className="row">
-          {/* RIGHT SECTION */}
-          <div className='col-lg-6'>
+          {/* LEFT SECTION */}
+          <div className='col-12 col-md-6'>
             {/* center form vertically */}
             <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
               <form className='row col-lg-8' onSubmit={handleSubmit}>
@@ -82,21 +82,56 @@ export default function Login() {
             </div>
           </div>
 
-          {/* LEFT SECTION */}
-          <div className='col-lg-6'>
-            <div className='d-flex flex-column justify-content-center align-items-center position-relative clearfix' style={{ height: '100vh' }}>
-              <Image src={womanImage} style={{width:'100%', height:'auto'}} />
+          {/* RIGHT SECTION */}
+          <div className='d-none d-md-block col-md-6'>
+            <div
+              className='d-flex flex-column justify-content-center align-items-center position-relative clearfix'
+              style={{
+                height: '100vh',
+                backgroundImage: 'url(/images/woman.png)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+              }}>
+
               {/* float quote above the image at the bottom */}
-              <div className='position-absolute bottom-0 start-50 translate-middle-x'>
-                <div className='bg-white mx-2 my-4'
-                  // style={{ filter:'blur(1px)' }}
-                  >
-                  <p className='text-muted'>
-                    "I love the way you work. It's so easy to use and it's so fast. I'm so happy with my website."
-                  </p>
-                  <p className='text-muted'>
-                    <b>John Doe</b>
-                  </p>
+              <div className='position-absolute bottom-0 start-50 translate-middle-x'
+                style={{ width:'100%' }}
+                >
+                <div className='m-4 px-3 py-4 text-white rounded'
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.45)',
+                    backdropFilter: 'blur(0.25rem)',
+                  }}>
+                  <blockquote className='h4 mb-3'>
+                    "We've been using Untitled to kick start every new project and can't imagin working without it."
+                  </blockquote>
+
+                  <div className='d-flex justify-content-between mb-2'>
+                    <h2>Andi Lane</h2>
+
+                    <div className=''>
+                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <img style={{margin:'0.15rem'}} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                    </div>
+                  </div>
+
+                  <div className='d-flex justify-content-between'>
+                    <div>
+                      <small className='text-small'> Founder, Catalog </small><br/>
+                      <small className='text-small opacity-75'>Web Design Agency</small>
+                    </div>
+
+                    <div className='d-flex gap-md-3'>
+                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
+                        <img src="https://img.icons8.com/windows/24/FFFFFF/left.png" /></a>
+                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
+                        <img src="https://img.icons8.com/windows/24/FFFFFF/right.png" /></a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
