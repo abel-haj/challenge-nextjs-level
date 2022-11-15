@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { useState } from 'react'
 import styles from '../styles/login.module.css'
 
@@ -64,8 +65,8 @@ export default function Login() {
                 {/* full width button sign in with google button */}
                 <div className="form-group mb-3">
                   <button type="submit" className="btn btn-outline-dark w-100">
-                    <img src="https://img.icons8.com/color/24/000000/google-logo.png"
-                      className='mx-2'/>
+                    <Image src="https://img.icons8.com/color/24/000000/google-logo.png"
+                      width={24} height={24} className='mx-2'/>
                     Sign in with Google
                   </button>
                 </div>
@@ -97,11 +98,11 @@ export default function Login() {
                     <h2>Andi Lane</h2>
 
                     <div className=''>
-                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <img className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
                     </div>
                   </div>
 
@@ -113,9 +114,9 @@ export default function Login() {
 
                     <div className='d-flex gap-md-3'>
                       <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
-                        <img src="https://img.icons8.com/windows/24/FFFFFF/left.png" /></a>
+                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/left.png" /></a>
                       <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
-                        <img src="https://img.icons8.com/windows/24/FFFFFF/right.png" /></a>
+                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/right.png" /></a>
                     </div>
                   </div>
                 </div>
