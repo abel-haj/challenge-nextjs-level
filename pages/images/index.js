@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/Image'
 import { useState, useEffect } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import Header from '../../components/header'
 import styles from '../../styles/images.module.css'
 
 export default function SeeAll() {
-
-  // object of images
-  // 'image1': 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f',
 
   // example of response object
   const one = {
@@ -26,54 +25,108 @@ export default function SeeAll() {
   }
 
   const [images, setImages] = useState([])
-  console.log(typeof images);
-  let pageNumber = 1
-  const perPage = 6
+  const [pageNumber, setPageNumber] = useState(278)
+  const [hasMore, setHasMore] = useState(true)
+  const [likedImages, setLikedImages] = useState([])
+  const perPage = 20
   const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID
 
   // fetch images from unsplash
   const fetchImages = async () => {
     const response = await fetch(`https://api.unsplash.com/photos/?client_id=${clientId}&page=${pageNumber}&per_page=${perPage}`)
     const data = await response.json()
-    console.log('fetching', `https://api.unsplash.com/photos/?client_id=${clientId}&page=${pageNumber}&per_page=${perPage}`, data)
-    // console.log('images before', images);
-    setImages([...images, data])
-    // console.log('images after', images);
-    pageNumber += 1;
-    return data
+    console.log(data)
+
+    // if no more images or an error has occuered
+    if (data.errors || data.length < perPage) {
+      data.errors?.forEach(element => {
+        alert(element)
+      })
+      setHasMore(false)
+      return
+    }
+
+    setImages([...images, ...data])
+    setPageNumber(pageNumber + 1)
   }
 
   useEffect(() => {
+    fetchImages()
   }, [])
   
   return (
-    <div className="container-fluid">
+    <div id="containerFluid" className="container-fluid">
       <Head>
         <title>All Images - Cires Challenge</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <nav className={`row`}>
-      </nav>
+      <Header />
 
-      <div >
-        {/* button to fetch images */}
-        <button onClick={fetchImages}>Fetch Images</button>
-      </div>
+      <main className={``}>
+          <InfiniteScroll
+            className={`row mx-2 gap-4 justify-content-center image-container`}
+            prefill={true}
+            dataLength={images.length}
+            next={fetchImages}
+            hasMore={hasMore}
+            loader={
+              <div className="my-4 text-center">
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            }
+            endMessage={
+              <div className={`my-4 text-center`}>
+                <h3>Whoops! Looks like there are no more images to see!</h3>
+              </div>
+            }
+          >
+            {Object.keys(images).map((index) => {
+              return (
+                <div className={`position-relative rounded ${styles.image}`}
+                  key={index}>
 
-      <main className={`row gap-4 justify-content-center image-container`}>
-        {/* loop on images object and display them with hover heart effect */}
-        {Object.keys(images).map((index) => {
-          console.log(images[index])
-          // console.log('logging', index, image)
-          return
-          (
-            <div className={`position-relative rounded image`} key={index}
-              style={{width: '20rem', height:'17rem',}}>
-              <Image src={images[index].urls.raw} fill objectFit='cover' className='rounded' />
-            </div>)
-          })}
+                  <Image src={images[index].urls.regular} fill objectFit='cover' 
+                    className='rounded' sizes='25rem'
+                    alt={images[index].alt_description || index} 
+                  />
+
+                  <div className={`position-absolute bottom-0 start-0 end-0 p-2 bg-light rounded-bottom`}>
+                    <div className={`d-flex align-items-center justify-content-between`}>
+                      <div className={`text-nowrap ${styles.textEllipsis}`}>
+                        <Image
+                          className='rounded-circle'
+                          src={images[index].user.profile_image.small}
+                          width={24} height={24} />
+                        {` `}
+                        <b>{images[index].user.name}</b>
+                      </div>
+
+                      <a
+                        onClick={() => {
+                          // add image to likedImages or remove it
+                          if (likedImages.includes(images[index].id))
+                            setLikedImages(likedImages.filter((image) => image !== images[index].id))
+                          else
+                            setLikedImages([...likedImages, images[index].id])
+                        }}
+                        className={`text-nowrap ${likedImages.includes(images[index].id) ? 'text-danger' : 'text-muted'} ${styles.clickable} ${styles.zoomHover}`}
+                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class={`bi bi-suit-heart-fill `} viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                        </svg>
+                        {` `}
+                        <b>{ likedImages.includes(images[index].id) ? images[index].likes+1 : images[index].likes}</b>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </InfiniteScroll>
       </main>
     </div>
   )
