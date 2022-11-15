@@ -19,6 +19,7 @@ export default function Login() {
         <title>Login - Cires Challenge</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content='white' />
       </Head>
 
       <main>
@@ -65,7 +66,7 @@ export default function Login() {
                 {/* full width button sign in with google button */}
                 <div className="form-group mb-3">
                   <button type="submit" className="btn btn-outline-dark w-100">
-                    <Image src="https://img.icons8.com/color/24/000000/google-logo.png"
+                    <Image src="https://img.icons8.com/color/24/000000/google-logo.png" alt='google logo'
                       width={24} height={24} className='mx-2'/>
                     Sign in with Google
                   </button>
@@ -98,11 +99,11 @@ export default function Login() {
                     <h2>Andi Lane</h2>
 
                     <div className=''>
-                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
-                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" alt='star' />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" alt='star' />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" alt='star' />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" alt='star' />
+                        <Image width={14} height={14} className={`${styles.m015}`} src="https://img.icons8.com/ios-filled/14/FFFFFF/christmas-star.png" alt='star' />
                     </div>
                   </div>
 
@@ -113,10 +114,10 @@ export default function Login() {
                     </div>
 
                     <div className='d-flex gap-md-3'>
-                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
-                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/left.png" /></a>
-                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1'>
-                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/right.png" /></a>
+                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1' name='previous quote'>
+                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/left.png" alt='left arrow' /></a>
+                      <a href="#" className='w-50 border border-white rounded-circle p-3 m-1' name='next quote'>
+                        <Image width={24} height={24} src="https://img.icons8.com/windows/24/FFFFFF/right.png" alt='right arrow' /></a>
                     </div>
                   </div>
                 </div>
