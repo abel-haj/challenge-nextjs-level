@@ -1,7 +1,40 @@
-.image-item {
-
+.image {
+	width: 20rem;
+	height:20rem;
+}
+.zoomHover {
+	transition: transform 0.3s ease-in-out;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out;
+	-moz-transition: -moz-transform 0.3s ease-in-out;
+	-o-transition: -o-transform 0.3s ease-in-out;
+	-ms-transition: -ms-transform 0.3s ease-in-out;
+}
+.zoomHover:hover {
+	transform: scale(1.5);
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+}
+.textEllipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.clickable {
+	cursor: pointer;
+}
+.selected {
+	background-color: #f5f5f5;
+	border-radius: 0.375rem;
+	font-weight: bold;
+	color: rgb(75, 71, 71) !important;
 }
 
-.icon-container {
-
+/* breakpoint at 576px width */
+@media (max-width: 576px) {
+	.image {
+		width: 100% !important;
+		height:15rem;
+	}
 }
