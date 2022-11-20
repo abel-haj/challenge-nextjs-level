@@ -33,6 +33,33 @@ export default function SeeAll() {
     setPageNumber(pageNumber + 1)
   }
 
+  const handleLike = async (image) => {
+    const result = await fetch('/api/images', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ image: image, username: user.username }),
+    })
+
+    const data = await result.json()
+
+    if (data.success) {
+      setLikedImages([...likedImages, image])
+    }
+  }
+  const handleUnlike = async (image) => {
+    const result = await fetch('/api/images', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ image, username: user.username }),
+    })
+
+    const data = await result.json()
+
+    if (data.success) {
+      setLikedImages(likedImages.filter(img => img.id !== image.id))
+    }
+  }
+
   useEffect(() => {
     fetchImages()
   }, [])
