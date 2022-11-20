@@ -1,9 +1,9 @@
 
 // import level
 const { Level } = require('level');
-// create db
+// create database instance
 const db = new Level('./database', { valueEncoding: 'json' });
-// 
+// new database for users
 const users = db.sublevel('users', { valueEncoding: 'json', })
 
 // log all keys and values in this sublevel
