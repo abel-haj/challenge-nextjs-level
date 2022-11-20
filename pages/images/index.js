@@ -7,23 +7,6 @@ import styles from '../../styles/images.module.css'
 
 export default function SeeAll() {
 
-  // example of response object
-  const one = {
-    alt_description : null,
-    blur_hash : "LLEooPxu~qa{=|M{%Mt7WTt7Iooz",
-    color : "#404026",
-    created_at : "2022-09-30T22:06:54Z",
-    height : 6433,
-    id : "o2hPCfwPPkw",
-    liked_by_user : false,
-    likes : 123,
-    links : {self: 'https://api.unsplash.com/photos/o2hPCfwPPkw', html: 'https://unsplash.com/photos/o2hPCfwPPkw', download: 'https://unsplash.com/photos/o2hPCfwPPkw/download?i…nwzODA0MzF8MXwxfGFsbHwxfHx8fHx8Mnx8MTY2ODQwMjc5NA', download_location: 'https://api.unsplash.com/photos/o2hPCfwPPkw/downlo…nwzODA0MzF8MXwxfGFsbHwxfHx8fHx8Mnx8MTY2ODQwMjc5NA'},
-    updated_at : "2022-11-13T16:30:31Z",
-    urls : {raw: 'https://images.unsplash.com,/photo-1664575600850-c4…fGFsbHwxfHx8fHx8Mnx8MTY2ODQwMjc5NA&ixlib=rb-4.0.3', full: 'https://images.unsplash.com/photo-1664575600850-c4…HwxfHx8fHx8Mnx8MTY2ODQwMjc5NA&ixlib=rb-4.0.3&q=80', regular: 'https://images.unsplash.com/photo-1664575600850-c4…fHx8Mnx8MTY2ODQwMjc5NA&ixlib=rb-4.0.3&q=80&w=1080', small: 'https://images.unsplash.com/photo-1664575600850-c4…8fHx8Mnx8MTY2ODQwMjc5NA&ixlib=rb-4.0.3&q=80&w=400', thumb: 'https://images.unsplash.com/photo-1664575600850-c4…8fHx8Mnx8MTY2ODQwMjc5NA&ixlib=rb-4.0.3&q=80&w=200', },
-    user : {id: 'VKlg9Ffk2GE', updated_at: '2022-11-11T05:10:31Z', username: 'microsoft365', name: 'Microsoft 365', first_name: 'Microsoft', },
-    width : 4289,
-  }
-
   const [images, setImages] = useState([])
   const [pageNumber, setPageNumber] = useState(278)
   const [hasMore, setHasMore] = useState(true)
