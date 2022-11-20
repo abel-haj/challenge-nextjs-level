@@ -1,8 +1,6 @@
 # Under Construction
 
-# A small challenge
-
-Using nextjs and level as DB
+Building a couple of pages with authentication using nextjs and level as DB
 
 # Requirements
  - Node.js.
