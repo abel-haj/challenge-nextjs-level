@@ -1,6 +1,13 @@
+import Router from 'next/router'
 import styles from '../styles/images.module.css'
 
 export default function Header () {
+
+  const handleLogout = () => {
+    localStorage.removeItem('user')
+    Router.push('/')
+  }
+
   return (
     <header className={`row pt-3 pb-2 mb-3 justify-content-between text-muted`}>
       {/* Title */}
@@ -18,7 +25,7 @@ export default function Header () {
 
       {/* logout button */}
       <div className="col-12 col-lg-4 d-flex justify-content-center">
-        <button className="btn btn-outline-secondary">Logout</button>
+        <button type="button" className="btn btn-outline-secondary" onClick={handleLogout}>Logout</button>
       </div>
     </header>
   )
