@@ -10,6 +10,14 @@ Using nextjs and level as DB
 
 
 # Steps to run
- - Clone the repo and go to the root of the project.
- - Run `npm install`
- - Run `npm run dev`
+Clone the repo and go to the root of the project.
+
+## Configuration
+Rename `.env.default` to `.env` and set Unsplash api public key there to the key `NEXT_PUBLIC_UNSPLASH`\
+Run `node config/migration.js` to create the database and insert fake users
+
+## Installing
+Run `npm install`
+
+## Starting
+Run `npm run build && npm run start`
