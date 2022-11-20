@@ -17,7 +17,7 @@ export const getUser = async (username, password) => {
 
     // wrong password
     if (val.password !== password)
-      return { code: 401, user: null, }
+      return { code: 400, user: null, }
 
     // account blocked
     if (val.active === 0)
