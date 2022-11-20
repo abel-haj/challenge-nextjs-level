@@ -9,7 +9,7 @@ import styles from '../../styles/images.module.css'
 export default function SeeAll() {
 
   const [images, setImages] = useState([])
-  const [pageNumber, setPageNumber] = useState(278)
+  const [pageNumber, setPageNumber] = useState(1)
   const [hasMore, setHasMore] = useState(true)
   const [likedImages, setLikedImages] = useState([])
   const [pageLoading, setPageLoading] = useState(true)
@@ -21,7 +21,6 @@ export default function SeeAll() {
   const fetchImages = async () => {
     const response = await fetch(`https://api.unsplash.com/photos/?client_id=${clientId}&page=${pageNumber}&per_page=${perPage}`)
     const data = await response.json()
-    console.log(data)
 
     // if no more images or an error has occuered
     if (data.errors || data.length < perPage) {
@@ -46,7 +45,10 @@ export default function SeeAll() {
     const data = await result.json()
 
     if (data.success) {
-      setLikedImages([...likedImages, image])
+      let newimages = [...likedImages, image]
+      setLikedImages(newimages)
+      localStorage.setItem('user', JSON.stringify({ username: user.username, images: newimages }))
+      console.log('NOW LIKED', newimages);
     }
   }
   const handleUnlike = async (image) => {
@@ -59,7 +61,10 @@ export default function SeeAll() {
     const data = await result.json()
 
     if (data.success) {
-      setLikedImages(likedImages.filter(img => img.id !== image.id))
+      let newimages = likedImages.filter((img) => img !== image)
+      setLikedImages(newimages)
+      localStorage.setItem('user', JSON.stringify({ username: user.username, images: newimages }))
+      console.log('NOW DISLIKED', newimages);
     }
   }
 
