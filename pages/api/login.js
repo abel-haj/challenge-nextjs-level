@@ -10,7 +10,7 @@ const msgs = {
   401: "This account was blocked",
 }
 
-export default handler = async (req, res) => {
+module.exports = async (req, res) => {
   const { username, password } = req.body;
 
   // returns a status code

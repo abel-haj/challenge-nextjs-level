@@ -1,7 +1,7 @@
 // database helper
 const { updateImage } = require('../../config/db');
 
-export default handler = async (req, res) => {
+module.exports = async (req, res) => {
   // image id and username : strings
   const { image, username } = req.body
 
