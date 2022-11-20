@@ -11,6 +11,8 @@ export default function SeeAll() {
   const [pageNumber, setPageNumber] = useState(278)
   const [hasMore, setHasMore] = useState(true)
   const [likedImages, setLikedImages] = useState([])
+  const [pageLoading, setPageLoading] = useState(true)
+  const [user, setUser] = useState({})
   const perPage = 20
   const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID
 
@@ -61,9 +63,31 @@ export default function SeeAll() {
   }
 
   useEffect(() => {
+    // // check if user is logged in
+    let usr = (localStorage.getItem('user'))
+
+    if (!usr) {
+      Router.push('/')
+      return
+    }
+
+    else {
+      usr = JSON.parse(usr)
+      setLikedImages(usr.images)
+      setUser(usr)
+      setPageLoading(false)
+    }
+
     fetchImages()
   }, [])
-  
+
+  if (!clientId)
+    return (<div>You need to specify an Api key in .env file for this page to work</div>)
+
+  // while checking if user is logged in
+  if (pageLoading)
+    return (<div>Loading...</div>)
+
   return (
     <div id="containerFluid" className="container-fluid">
       <Head>
